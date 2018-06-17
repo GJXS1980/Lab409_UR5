@@ -1,4 +1,8 @@
 # universal_robot
+### 安装MoveIt
+```
+sudo apt-get install ros-kinetic-moveit-*
+```
 #### 1.ur_description的测试
 ```
 roslaunch ur_description ur5_upload.launch
