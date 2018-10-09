@@ -84,7 +84,16 @@
      wrist_2_lower_limit:=${-pi}    wrist_2_upper_limit:=${pi}
      wrist_3_lower_limit:=${-pi}    wrist_3_upper_limit:=${pi}">
 
-    <link name="${prefix}base_link" >
+ <!--       new add       -->
+
+  <joint name="mid_mount_ur_joint" type="fixed">
+    <origin xyz="0.28 0.0 0" rpy="0.0 0.0 -1.5708" />
+    <parent link="mid_mount"/>
+    <child link="mid_mount_ur" />
+  </joint>
+   
+
+    <link name="${prefix}mid_mount_ur" >
       <visual>
         <geometry>
           <mesh filename="package://ur_description/meshes/ur5/visual/base.dae" />
@@ -103,8 +112,9 @@
       </xacro:cylinder_inertial>
     </link>
 
+
     <joint name="${prefix}shoulder_pan_joint" type="revolute">
-      <parent link="${prefix}base_link" />
+      <parent link="${prefix}mid_mount_ur" />
       <child link = "${prefix}shoulder_link" />
       <origin xyz="0.0 0.0 ${shoulder_height}" rpy="0.0 0.0 0.0" />
       <axis xyz="0 0 1" />
@@ -320,14 +330,17 @@
     <xacro:ur_arm_gazebo prefix="${prefix}" />
 
     <!-- ROS base_link to UR 'Base' Coordinates transform -->
+
     <link name="${prefix}base"/>
     <joint name="${prefix}base_link-base_fixed_joint" type="fixed">
+
       <!-- NOTE: this rotation is only needed as long as base_link itself is
                  not corrected wrt the real robot (ie: rotated over 180
                  degrees)
       -->
+
       <origin xyz="0 0 0" rpy="0 0 ${-pi}"/>
-      <parent link="${prefix}base_link"/>
+      <parent link="${prefix}mid_mount_ur"/>
       <child link="${prefix}base"/>
     </joint>
 
