@@ -86,14 +86,14 @@
 
  <!--       new add       -->
 
-  <joint name="mid_mount_ur_joint" type="fixed">
+  <joint name="ur_base_link_joint" type="fixed">
     <origin xyz="0.28 0.0 0" rpy="0.0 0.0 -1.5708" />
     <parent link="mid_mount"/>
-    <child link="mid_mount_ur" />
+    <child link="ur_base_link" />
   </joint>
    
 
-    <link name="mid_mount_ur" >
+    <link name="ur_base_link" >
       <visual>
         <geometry>
           <mesh filename="package://ur_description/meshes/ur5/visual/base.dae" />
@@ -114,7 +114,7 @@
 
 
     <joint name="${prefix}shoulder_pan_joint" type="revolute">
-      <parent link="mid_mount_ur" />
+      <parent link="ur_base_link" />
       <child link = "${prefix}shoulder_link" />
       <origin xyz="0.0 0.0 ${shoulder_height}" rpy="0.0 0.0 0.0" />
       <axis xyz="0 0 1" />
@@ -340,7 +340,7 @@
       -->
 
       <origin xyz="0 0 0" rpy="0 0 ${-pi}"/>
-      <parent link="mid_mount_ur"/>
+      <parent link="ur_base_link"/>
       <child link="${prefix}base"/>
     </joint>
 
