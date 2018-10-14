@@ -85,9 +85,9 @@
      wrist_3_lower_limit:=${-pi}    wrist_3_upper_limit:=${pi}">
 
  <!--       new add       -->
-
+<!--   <origin xyz="0.28 0.0 0" rpy="0.0 0.0 -1.5708" />    -->
   <joint name="ur_base_link_joint" type="fixed">
-    <origin xyz="0.28 0.0 0" rpy="0.0 0.0 -1.5708" />
+    <origin xyz="0.28 0.0 0" rpy="0.0 0.0 ${-pi/4}" />
     <parent link="mid_mount"/>
     <child link="ur_base_link" />
   </joint>

@@ -28,7 +28,7 @@
   </link>
 
   <joint name="robotiq_coupler_joint" type="fixed">
-    <origin xyz="0 0 0.06" rpy="${-pi/2.0} 0 ${-pi}" />
+    <origin xyz="0 0 0.06" rpy="${-pi/2.0} 0 ${-(5*pi)/4}" />
     <parent link="tool0"/>
     <child link="robotiq_coupler"/>
   </joint>
@@ -48,7 +48,7 @@
   
   <!-- Attach the robotiq 85 gripper -->
   <xacro:robotiq_hand prefix="" parent="robotiq_coupler" >
-    <origin xyz="0 0 0.004" rpy="0 ${-pi/2} ${pi}"/>
+    <origin xyz="0 0 0.004" rpy="0 ${0} ${pi}"/>
   </xacro:robotiq_hand> 
   
   <!-- Gazebo FT sensor plugin -->
