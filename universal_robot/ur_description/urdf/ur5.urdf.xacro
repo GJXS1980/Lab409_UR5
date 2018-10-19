@@ -152,7 +152,7 @@
       <origin xyz="0.0 ${shoulder_offset} 0.0" rpy="0.0 ${pi / 2.0} 0.0" />
       <axis xyz="0 1 0" />
       <xacro:unless value="${joint_limited}">
-        <limit lower="${-2.0 * pi}" upper="${2.0 * pi}" effort="150.0" velocity="3.15"/>
+        <limit lower="${pi/4}" upper="${3*pi / 4}" effort="150.0" velocity="3.15"/>
       </xacro:unless>
       <xacro:if value="${joint_limited}">
         <limit lower="${shoulder_lift_lower_limit}" upper="${shoulder_lift_upper_limit}" effort="150.0" velocity="3.15"/>
@@ -185,7 +185,7 @@
       <origin xyz="0.0 ${elbow_offset} ${upper_arm_length}" rpy="0.0 0.0 0.0" />
       <axis xyz="0 1 0" />
       <xacro:unless value="${joint_limited}">
-        <limit lower="${-pi}" upper="${pi}" effort="150.0" velocity="3.15"/>
+        <limit lower="${-3*pi / 4}" upper="${3*pi / 4}" effort="150.0" velocity="3.15"/>
       </xacro:unless>
       <xacro:if value="${joint_limited}">
         <limit lower="${elbow_joint_lower_limit}" upper="${elbow_joint_upper_limit}" effort="150.0" velocity="3.15"/>
@@ -218,7 +218,7 @@
       <origin xyz="0.0 0.0 ${forearm_length}" rpy="0.0 ${pi / 2.0} 0.0" />
       <axis xyz="0 1 0" />
       <xacro:unless value="${joint_limited}">
-        <limit lower="${-2.0 * pi}" upper="${2.0 * pi}" effort="28.0" velocity="3.2"/>
+        <limit lower="${-5.0 * pi / 4}" upper="${pi / 4}" effort="28.0" velocity="3.2"/>
       </xacro:unless>
       <xacro:if value="${joint_limited}">
         <limit lower="${wrist_1_lower_limit}" upper="${wrist_1_upper_limit}" effort="28.0" velocity="3.2"/>
@@ -251,7 +251,7 @@
       <origin xyz="0.0 ${wrist_1_length} 0.0" rpy="0.0 0.0 0.0" />
       <axis xyz="0 0 1" />
       <xacro:unless value="${joint_limited}">
-        <limit lower="${-2.0 * pi}" upper="${2.0 * pi}" effort="28.0" velocity="3.2"/>
+        <limit lower="${10 * pi / 9.0}" upper="${2.0 * pi}" effort="28.0" velocity="3.2"/>
       </xacro:unless>
       <xacro:if value="${joint_limited}">
         <limit lower="${wrist_2_lower_limit}" upper="${wrist_2_upper_limit}" effort="28.0" velocity="3.2"/>
