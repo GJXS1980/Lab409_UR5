@@ -16,7 +16,7 @@
   <arg name="tool_frame" default="$(arg prefix)tool0_controller" />
   <arg name="shutdown_on_disconnect" default="true" />
   <!-- robot model -->
-  <include file="$(find ur_description)/launch/ur5_upload.launch">
+  <include file="$(find ur_description)/launch/ur10_upload.launch">
     <arg name="limited" value="$(arg limited)"/>
   </include>
 
@@ -36,7 +36,7 @@
   </node>
 
   <!-- Load controller settings -->
-  <rosparam file="$(find ur_modern_driver)/config/ur5_controllers.yaml" command="load"/>
+  <rosparam file="$(find ur_modern_driver)/config/ur10_controllers.yaml" command="load"/>
 
   <!-- spawn controller manager -->
   <node name="ros_control_controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
@@ -50,4 +50,3 @@
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
 </launch>
-
