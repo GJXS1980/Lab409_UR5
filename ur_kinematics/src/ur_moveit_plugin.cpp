@@ -176,7 +176,7 @@ bool URKinematicsPlugin::initialize(const std::string &robot_description,
   rdf_loader::RDFLoader rdf_loader(robot_description_);
   const srdf::ModelSharedPtr &srdf = rdf_loader.getSRDF();
   const urdf::ModelInterfaceSharedPtr &urdf_model = rdf_loader.getURDF();
-  
+
   if (!urdf_model || !srdf)
   {
     ROS_ERROR_NAMED("kdl","URDF and SRDF must be loaded for KDL kinematics solver to work.");
