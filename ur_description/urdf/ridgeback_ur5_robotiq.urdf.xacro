@@ -15,7 +15,7 @@
   <!--xacro:ur5_robot prefix="" joint_limited="false"/-->
 
 
- <xacro:ur5_robot prefix="" xyz="0.28 0 0.28" rpy="0 0 -0.785398" connected_to="top_link" joint_limited="false"/>
+ <xacro:ur5_robot prefix="" xyz="0.28 0 0.28" rpy="0 0 -0.785398" connected_to="top_link" joint_limited="true"/>
 
 
   <!-- robotiq -->
